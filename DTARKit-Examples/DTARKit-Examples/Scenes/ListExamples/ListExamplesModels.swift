@@ -26,18 +26,32 @@ enum ListExamples {
     }
     
     struct ViewModel {
-        struct DisplayedExample: Diffable {
-            var id: Int
-            var name: String
+       
+        class DisplayedExample: ListDiffable {
+            var id: Int = 0
+            var name: String = ""
             
-            var diffIdentifier: String {
-                return String(id)
+            // MARK: - Init
+            
+            init(id: Int, name: String) {
+                self.id = id
+                self.name = name
             }
             
-            static func ==(lhs: DisplayedExample, rhs: DisplayedExample) -> Bool {
-                return lhs.name == rhs.name
+            // MARK: - ListDiffable
+            
+            func diffIdentifier() -> NSObjectProtocol {
+                return id as NSObjectProtocol
             }
+            
+            func isEqual(toDiffableObject object: ListDiffable?) -> Bool {
+                guard self !== object else { return true }
+                guard let object = object as? DisplayedExample else { return false }
+                return name == object.name
+            }
+            
         }
+        
         var displayedExamples: [DisplayedExample]
     }
     

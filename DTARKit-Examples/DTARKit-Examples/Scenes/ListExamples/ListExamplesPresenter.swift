@@ -24,7 +24,7 @@ class ListExamplesPresenter: ListExamplesPresentationLogic  {
     func presentFetchedOrders(response: ListExamples.FetchExamples.Response) {
         var displayedExamples: [ListExamples.FetchExamples.ViewModel.DisplayedExample] = []
         for example in response.examples {
-            let displayedExample = ListExamples.FetchExamples.ViewModel.DisplayedExample(id: example.id, name: example.name)
+            let displayedExample = ListExamples.FetchExamples.ViewModel.DisplayedExample(id: example.id, name: example.name) 
             displayedExamples.append(displayedExample)
         }
         let viewModel = ListExamples.FetchExamples.ViewModel(displayedExamples: displayedExamples)

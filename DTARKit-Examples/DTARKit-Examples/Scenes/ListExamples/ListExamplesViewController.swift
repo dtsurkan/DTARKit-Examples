@@ -118,14 +118,14 @@ class ListExamplesViewController: UIViewController, ListExamplesDisplayLogic {
 extension ListExamplesViewController: ListAdapterDataSource, ListSingleSectionControllerDelegate {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return displayedExamples.diffable()
+        return displayedExamples
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         let configureBlock = { (item: Any, cell: UICollectionViewCell) in
             guard let cell = cell as? NibCell else { return }
             
-            if let example = item as? ListExamples.FetchExamples.ViewModel.DisplayedExample { // HERE is the problem
+            if let example = item as? ListExamples.FetchExamples.ViewModel.DisplayedExample {
                 cell.text = example.name
             }
         }
@@ -147,7 +147,15 @@ extension ListExamplesViewController: ListAdapterDataSource, ListSingleSectionCo
     func emptyView(for listAdapter: ListAdapter) -> UIView? { return nil }
     
     func didSelect(_ sectionController: ListSingleSectionController, with object: Any) {
-        
+        let section = adapter.section(for: sectionController)
+        switch section {
+        case 0:
+            if let router = router {
+                router.routeToShowPosts()
+            }
+        default:
+            break
+        }
     }
 
 }
