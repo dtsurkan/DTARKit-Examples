@@ -11,11 +11,12 @@ import UIKit
 final class UserInfoCell: UICollectionViewCell {
     
     // MARK: - Properties
-    
-    lazy var avatarView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(red: 210/255.0, green: 65/255.0, blue: 64/255.0, alpha: 1.0)
-        self.contentView.addSubview(view)
+        
+    fileprivate let avatarView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
         return view
     }()
     
@@ -28,6 +29,12 @@ final class UserInfoCell: UICollectionViewCell {
         return view
     }()
     
+    fileprivate let activityView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        view.startAnimating()
+        return view
+    }()
+    
     var name: String? {
         didSet {
             nameLabel.text = name
@@ -36,6 +43,8 @@ final class UserInfoCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        self.contentView.addSubview(activityView)
         
         let bounds = contentView.bounds
         let avatarViewWidth: CGFloat = 25.0
@@ -46,7 +55,18 @@ final class UserInfoCell: UICollectionViewCell {
         avatarView.layer.cornerRadius = min(avatarView.frame.height, avatarView.frame.width) / 2.0
         avatarView.layer.masksToBounds = true
         
+        activityView.center = CGPoint(x: avatarView.frame.width/2.0, y: avatarView.frame.height/2.0)
+        
         nameLabel.frame = CGRect(x: avatarView.frame.maxX + 8.0, y: avatarView.frame.minY, width: bounds.size.width - avatarView.frame.maxX - 8.0 * 2.0, height: avatarView.frame.height)
+    }
+    
+    func setImage(image: UIImage?) {
+        avatarView.image = image
+        if image != nil {
+            activityView.stopAnimating()
+        } else {
+            activityView.startAnimating()
+        }
     }
     
 }

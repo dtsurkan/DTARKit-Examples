@@ -14,7 +14,9 @@ final class PostSectionController: ListSectionController {
     private var displayedPost: Posts.FetchPosts.ViewModel.DisplayedPost?
     private let cellsBeforeComments = 3
     private var downloadedImage: UIImage?
+    private var downloadedUserAvatarImage: UIImage?
     private var task: URLSessionDataTask?
+    private var userAvatarDataTask: URLSessionDataTask?
     
     deinit {
         task?.cancel()
@@ -47,6 +49,7 @@ final class PostSectionController: ListSectionController {
         if index == 0 {
             cell = collectionContext!.dequeueReusableCell(of: UserInfoCell.self, for: self, at: index) as! UserInfoCell
             (cell as! UserInfoCell).name = displayedPost?.username
+            (cell as! UserInfoCell).setImage(image: downloadedUserAvatarImage)
         } else if index == 1 {
             cell = collectionContext!.dequeueReusableCell(of: PhotoCell.self, for: self, at: index) as! PhotoCell
              (cell as! PhotoCell).setImage(image: downloadedImage)
@@ -71,6 +74,27 @@ final class PostSectionController: ListSectionController {
 extension PostSectionController: ListWorkingRangeDelegate {
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerWillEnterWorkingRange sectionController: ListSectionController) {
+        if sectionController.section == 0 {
+            guard downloadedUserAvatarImage == nil,
+                userAvatarDataTask == nil,
+                let urlString = displayedPost?.photoURL,
+                let url = URL(string: urlString)
+                else { return }
+            
+            userAvatarDataTask = URLSession.shared.dataTask(with: url) { data, _, error in
+                guard let data = data, let image = UIImage(data: data) else {
+                    return print("Error downloading \(urlString): " + String(describing: error))
+                }
+                DispatchQueue.main.async {
+                    self.downloadedUserAvatarImage = image
+                    if let cell = self.collectionContext?.cellForItem(at: 0, sectionController: self) as? UserInfoCell {
+                        cell.setImage(image: image)
+                    }
+                }
+            }
+            userAvatarDataTask?.resume()
+        }
+        
         guard downloadedImage == nil,
             task == nil,
             let urlString = displayedPost?.photoURL,

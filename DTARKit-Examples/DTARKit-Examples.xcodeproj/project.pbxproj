@@ -33,6 +33,7 @@
 		94C6A29B1F503DB1006DBD79 /* PostsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6A2951F503DB1006DBD79 /* PostsWorker.swift */; };
 		94C6A29E1F505389006DBD79 /* PostSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C6A29D1F505389006DBD79 /* PostSectionController.swift */; };
 		94DF07511F5064BC0091F819 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DF07501F5064BC0091F819 /* CommentCell.swift */; };
+		94DF07551F506BB50091F819 /* StoryEmbeddedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DF07541F506BB50091F819 /* StoryEmbeddedCollectionViewCell.swift */; };
 		E7E85C9282A2623072B60BCE /* Pods_DTARKit_Examples.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5607BF14C42C7761371149F /* Pods_DTARKit_Examples.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		94C6A2951F503DB1006DBD79 /* PostsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostsWorker.swift; sourceTree = "<group>"; };
 		94C6A29D1F505389006DBD79 /* PostSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSectionController.swift; sourceTree = "<group>"; };
 		94DF07501F5064BC0091F819 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		94DF07541F506BB50091F819 /* StoryEmbeddedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryEmbeddedCollectionViewCell.swift; sourceTree = "<group>"; };
 		9809EC71F1AD3D54506DE8E1 /* Pods-DTARKit-Examples.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DTARKit-Examples.release.xcconfig"; path = "Pods/Target Support Files/Pods-DTARKit-Examples/Pods-DTARKit-Examples.release.xcconfig"; sourceTree = "<group>"; };
 		B5607BF14C42C7761371149F /* Pods_DTARKit_Examples.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DTARKit_Examples.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E85253AF1524E76152701751 /* Pods-DTARKit-Examples.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DTARKit-Examples.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DTARKit-Examples/Pods-DTARKit-Examples.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				940A6A7E1F505BB4000F0EAA /* PhotoCell.swift */,
 				940A6A801F505CCF000F0EAA /* InteractiveCell.swift */,
 				94DF07501F5064BC0091F819 /* CommentCell.swift */,
+				94DF07541F506BB50091F819 /* StoryEmbeddedCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 			files = (
 				94C6A2961F503DB1006DBD79 /* PostsInteractor.swift in Sources */,
 				94C6A2731F501259006DBD79 /* ListExamplesWorker.swift in Sources */,
+				94DF07551F506BB50091F819 /* StoryEmbeddedCollectionViewCell.swift in Sources */,
 				94C6A2821F503D00006DBD79 /* Post.swift in Sources */,
 				94DF07511F5064BC0091F819 /* CommentCell.swift in Sources */,
 				94C6A29E1F505389006DBD79 /* PostSectionController.swift in Sources */,
