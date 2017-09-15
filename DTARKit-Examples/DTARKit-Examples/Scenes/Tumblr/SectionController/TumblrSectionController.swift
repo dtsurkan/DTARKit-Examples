@@ -61,11 +61,11 @@ extension TumblrSectionController: ListWorkingRangeDelegate {
             let url = URL(string: urlString)
             else { return }
     
-        let cachedImage = cache.image(forURL: URL(string: String(describing: displayedPhoto?.resizedImageHash) )!)
+        let cachedImage = cache.image(forURL: URL(string: (displayedPhoto?.url)!)!)
         
         if cachedImage != nil {
             DispatchQueue.main.async {
-                self.displayedPhoto?.resizedImage = cachedImage
+                self.displayedPhoto?.resizedImage = cachedImage?.resize(toWidth: 300, toHeight: 300)
                 if let cell = self.collectionContext?.cellForItem(at: 0, sectionController: self) as? PhotoCell {
                     cell.setImage(image: cachedImage)
                 }
@@ -79,7 +79,7 @@ extension TumblrSectionController: ListWorkingRangeDelegate {
                 DispatchQueue.main.async {
                     self.displayedPhoto?.originalImage = image
                     self.displayedPhoto?.resizedImage = image.resize(toWidth: 300, toHeight: 300)
-                    self.cache.save(image: self.displayedPhoto?.resizedImage, atURL: URL(string: String(describing: self.displayedPhoto?.resizedImageHash) )!)
+                    self.cache.save(image: self.displayedPhoto?.resizedImage, atURL: URL(string: (self.displayedPhoto?.url)!)!)
                     if let cell = self.collectionContext?.cellForItem(at: 0, sectionController: self) as? PhotoCell {
                         cell.setImage(image: image)
                     }

@@ -33,8 +33,8 @@ enum Tumblr {
                 var originalHeight: Int
                 var originalImage: UIImage?
                 var resizedImage: UIImage?
-                var originalImageHash: Int?
-                var resizedImageHash: Int?
+                var originalImageChecksum: String?
+                var resizedImageChecksum: String?
                 
                 // MARK: - Init
                 

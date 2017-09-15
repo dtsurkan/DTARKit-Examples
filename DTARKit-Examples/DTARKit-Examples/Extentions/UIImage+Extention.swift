@@ -32,4 +32,8 @@ extension UIImage {
         return newImage
     }
     
+    func dataRepresentation() -> Data? {
+        return UIImagePNGRepresentation(self) as Data?
+    }
+    
 }
