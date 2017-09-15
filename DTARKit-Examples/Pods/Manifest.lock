@@ -4,13 +4,39 @@ PODS:
   - IGListKit/Default (3.0.0):
     - IGListKit/Diffing
   - IGListKit/Diffing (3.0.0)
+  - RxCocoa (4.0.0-alpha.1):
+    - RxSwift (~> 4.0.0-alpha.1)
+  - RxSwift (4.0.0-alpha.1)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - IGListKit (~> 3.0)
+  - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `swift4.0`)
+  - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `swift4.0`)
+  - SwiftyJSON
+
+EXTERNAL SOURCES:
+  RxCocoa:
+    :branch: swift4.0
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :branch: swift4.0
+    :git: https://github.com/ReactiveX/RxSwift.git
+
+CHECKOUT OPTIONS:
+  RxCocoa:
+    :commit: c79b00f66e6c976c52ddc6654e3f0a3b6fa3b260
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :commit: c79b00f66e6c976c52ddc6654e3f0a3b6fa3b260
+    :git: https://github.com/ReactiveX/RxSwift.git
 
 SPEC CHECKSUMS:
   IGListKit: 9eab6856a15fa25ad72018ff9d9eb2178c240fff
+  RxCocoa: 2eb5f5d79668c61de6c32b636c2a1101a0ba3ca9
+  RxSwift: d313a43a0109708ada75e1ce99bf7c36d4180ad8
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 921bae4c33a72c88608d7ee27688ddcdfe733c6e
+PODFILE CHECKSUM: 16f10ce83e3a57d0cfac004c335af14a4ffad234
 
 COCOAPODS: 1.3.1

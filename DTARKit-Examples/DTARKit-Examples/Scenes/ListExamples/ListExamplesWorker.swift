@@ -17,7 +17,7 @@ class ListExamplesWorker {
     func fetchExamples(completionHandler: @escaping ([Example]) -> Void) {
         var examples = [Example]()
         examples.append(Example(name: "Feed", id: 0))
-        examples.append(Example(name: "Test ARKit #1", id: 1))
+        examples.append(Example(name: "Ciklum Test Task", id: 1))
         completionHandler(examples)
     }
 }

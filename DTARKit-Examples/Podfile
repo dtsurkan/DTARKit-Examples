@@ -6,5 +6,8 @@ target 'DTARKit-Examples' do
   use_frameworks!
 
   pod 'IGListKit', '~> 3.0'
-
+  pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'swift4.0'
+  pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'swift4.0'
+  pod 'SwiftyJSON'
+  
 end

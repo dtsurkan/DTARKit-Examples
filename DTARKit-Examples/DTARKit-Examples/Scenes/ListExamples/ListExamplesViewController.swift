@@ -153,6 +153,10 @@ extension ListExamplesViewController: ListAdapterDataSource, ListSingleSectionCo
             if let router = router {
                 router.routeToShowPosts()
             }
+        case 1:
+            if let router = router {
+                router.routeToTumblr()
+            }
         default:
             break
         }

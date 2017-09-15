@@ -14,6 +14,7 @@ import UIKit
 
 protocol PostsBusinessLogic {
     func fetchPosts(request: Posts.FetchPosts.Request)
+    func fetchNextPosts(request:  Posts.FetchPosts.Request)
 }
 
 protocol PostsDataStore {
@@ -27,13 +28,19 @@ class PostsInteractor: PostsBusinessLogic, PostsDataStore {
   
     // MARK: Fetch Posts
   
-  func fetchPosts(request: Posts.FetchPosts.Request) {
-    worker = PostsWorker()
+    func fetchPosts(request: Posts.FetchPosts.Request) {
+        worker = PostsWorker()
     
-    worker?.fetchPosts(completionHandler: { (posts) in
-        self.posts = posts
-        let response = Posts.FetchPosts.Response(posts: posts)
+        worker?.fetchPosts(completionHandler: { (posts) in
+            self.posts = posts
+            let response = Posts.FetchPosts.Response(posts: posts)
+            self.presenter?.presentFetchedPosts(response: response)
+        })
+    }
+    
+    func fetchNextPosts(request:  Posts.FetchPosts.Request) {
+        let response = Posts.FetchPosts.Response(posts: self.posts!)
         self.presenter?.presentFetchedPosts(response: response)
-    })
-  }
+    }
+    
 }

@@ -14,6 +14,7 @@ import UIKit
 
 @objc protocol ListExamplesRoutingLogic {
     func routeToShowPosts()
+    func routeToTumblr()
 }
 
 protocol ListExamplesDataPassing {
@@ -32,16 +33,30 @@ class ListExamplesRouter: NSObject, ListExamplesRoutingLogic, ListExamplesDataPa
         passDataToPosts(source: dataStore!, destination: &destinationVC)
         navigateToPosts(source: viewController!, destination: destinationVC)
     }
+    
+    func routeToTumblr() {
+        var destinationVC = TumblrViewController()
+        passDataToTumblr(source: dataStore!, destination: &destinationVC)
+        navigateToTumblr(source: viewController!, destination: destinationVC)
+    }
 
     // MARK: Navigation
   
     func navigateToPosts(source: ListExamplesViewController, destination: PostsViewController){
         source.show(destination, sender: nil)
     }
+    
+    func navigateToTumblr(source: ListExamplesViewController, destination: TumblrViewController){
+        source.show(destination, sender: nil)
+    }
   
     // MARK: Passing data
   
     func passDataToPosts(source: ListExamplesDataStore, destination: inout PostsViewController) {
+        
+    }
+    
+    func passDataToTumblr(source: ListExamplesDataStore, destination: inout TumblrViewController) {
         
     }
 }

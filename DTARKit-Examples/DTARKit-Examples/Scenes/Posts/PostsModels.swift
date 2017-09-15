@@ -12,6 +12,8 @@
 
 import UIKit
 import IGListKit
+import RxSwift
+import RxCocoa
 
 enum Posts {
   // MARK: Use cases
