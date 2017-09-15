@@ -78,7 +78,7 @@ class TumblrDetailsViewController: UIViewController, TumblrDetailsDisplayLogic {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         imageView.frame = self.view.bounds
-        imageView.contentMode = .redraw
+        imageView.contentMode = .scaleAspectFit
     }
     
     // MARK: - Internal
@@ -93,8 +93,6 @@ class TumblrDetailsViewController: UIViewController, TumblrDetailsDisplayLogic {
     }
   
     // MARK: Do something
-  
-    //@IBOutlet weak var nameTextField: UITextField!
   
     func doSomething() {
         let request = TumblrDetails.Something.Request()
